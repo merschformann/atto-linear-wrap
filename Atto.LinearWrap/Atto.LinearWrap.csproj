@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>Atto.LinearWrap</PackageId>
+    <Version>0.1.8</Version>
+    <Authors>Marius Merschformann</Authors>
+    <Company>Marius Merschformann</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>
+      This tiny library exposes basic translation functions for creating linear programming models for a small set of supported solvers. The memory footprint should be fairly small, as only mandatory objects are created within the library while most information is directly passed on towards the targeted solver.
+    </Description>
+    <Platforms>x64;x86</Platforms>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <CplexWinDllName>cplex1260.dll</CplexWinDllName>
+    <CplexWinDllPath>..\Solvers\cplex\12.6\x64\$(CplexWinDllName)</CplexWinDllPath>
+    <CplexLinuxDllName>libcplex1260.so</CplexLinuxDllName>
+    <CplexLinuxDllPath>..\Solvers\cplex\12.6\linux64\$(CplexLinuxDllName)</CplexLinuxDllPath>
+    <GurobiWinDllName>gurobi95.dll</GurobiWinDllName>
+    <GurobiWinDllPath>..\Solvers\gurobi\9.5.2\win64\$(GurobiWinDllName)</GurobiWinDllPath>
+    <GurobiLinuxDllName>libgurobi95.so</GurobiLinuxDllName>
+    <GurobiLinuxDllPath>..\Solvers\gurobi\9.5.2\linux64\$(GurobiLinuxDllName)</GurobiLinuxDllPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Condition="Exists('$(CplexWinDllPath)')" Include="$(CplexWinDllPath)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>$(CplexWinDllName)</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Condition="Exists('$(CplexLinuxDllPath)')" Include="$(CplexLinuxDllPath)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>$(CplexLinuxDllName)</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Condition="Exists('$(GurobiWinDllPath)')" Include="$(GurobiWinDllPath)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>$(GurobiWinDllName)</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Condition="Exists('$(GurobiLinuxDllPath)')" Include="$(GurobiLinuxDllPath)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>$(GurobiLinuxDllName)</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Gurobi95.NET">
+      <Pack>true</Pack>
+      <HintPath>..\Solvers\gurobi\9.5.2\win64\Gurobi95.NET.dll</HintPath>
+    </Reference>
+    <Content Include="..\Solvers\gurobi\9.5.2\win64\Gurobi95.NET.dll">
+        <Pack>true</Pack>
+        <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+    <Reference Include="ILOG.Concert">
+      <HintPath>..\Solvers\cplex\12.6\win64\ILOG.Concert.dll</HintPath>
+    </Reference>
+    <Content Include="..\Solvers\cplex\12.6\win64\ILOG.Concert.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+    <Reference Include="ILOG.CPLEX">
+      <HintPath>..\Solvers\cplex\12.6\win64\ILOG.CPLEX.dll</HintPath>
+    </Reference>
+    <Content Include="..\Solvers\cplex\12.6\win64\ILOG.CPLEX.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+  </ItemGroup>
+
+</Project>

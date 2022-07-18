@@ -12,6 +12,10 @@ dotnet add package Atto.LinearWrap
 
 In order to run it, you need to have the library defined in the second `PropertyGroup` of the [Atto.LinearWrap.csproj](Atto.LinearWrap\Atto.LinearWrap.csproj) available for dynamic linking (notice Gurobi vs. CPLEX and win64 vs. linux64).
 
+## Example
+
+A Sudoku solver using the Atto.LinearWrap library lives [here](examples/Sudoku/README.md).
+
 ## Remarks
 
 The package is a wrapper for the CPLEX and Gurobi solvers. It was written for specific projects back while I was at the university. Specifically, this package is used by [SardineCan](https://github.com/merschformann/sardine-can).

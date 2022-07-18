@@ -14,7 +14,7 @@ In order to run it, you need to have the library defined in the second `Property
 
 ## Example
 
-A Sudoku solver using the Atto.LinearWrap library lives [here](examples/Sudoku/README.md).
+A Sudoku solver using the Atto.LinearWrap library lives [here](examples/Sudoku).
 
 ## Remarks
 

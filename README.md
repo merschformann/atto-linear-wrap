@@ -18,8 +18,8 @@ A Sudoku solver using the Atto.LinearWrap library lives [here](examples/Sudoku/R
 
 ## Remarks
 
-The package is a wrapper for the CPLEX and Gurobi solvers. It was written for specific projects back while I was at the university. Specifically, this package is used by [SardineCan](https://github.com/merschformann/sardine-can).
+The package is a wrapper for the [CPLEX](https://www.ibm.com/analytics/cplex-optimizer) and [Gurobi](https://www.gurobi.com/) solvers. It was written for specific projects back while I was at the university. For example, this package is used by [SardineCan](https://github.com/merschformann/sardine-can).
 
-This is a very lightweight package tied to specific solver versions. It was not intended to be used in broader sense. However, maybe it is useful as a template or starting point.
+This is a very lightweight package tied to specific solver versions. It was not intended to be used in more generic ways. However, maybe it is useful as a template or starting point.
 
 Unfortunately, I cannot include the proprietary libraries / binaries of CPLEX and Gurobi. Check the paths in [Atto.LinearWrap.csproj](Atto.LinearWrap\Atto.LinearWrap.csproj) to see where they need to go.

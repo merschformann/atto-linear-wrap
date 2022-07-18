@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>Atto.LinearWrap</PackageId>
-    <Version>0.1.8</Version>
+    <Version>0.1.9</Version>
     <Authors>Marius Merschformann</Authors>
     <Company>Marius Merschformann</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
